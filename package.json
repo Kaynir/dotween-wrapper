@@ -1,0 +1,16 @@
+{
+  "name": "com.kaynirgames.tweening",
+  "version": "1.0.0",
+  "displayName": "DOTween Wrapper",
+  "description": "Небольшая обертка под DOTween для анимаций.",
+  "unity": "2020.3",
+  "keywords": [
+    "kaynir, kaynirgames, dotween, tweening"
+  ],
+  "author": {
+    "name": "Denis Znov",
+    "email": "kaynir.games@gmail.com",
+    "url": "https://github.com/KaynirGames"
+  },
+  "type": "library"
+}

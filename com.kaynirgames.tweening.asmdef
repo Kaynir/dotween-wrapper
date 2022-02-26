@@ -1,0 +1,16 @@
+{
+    "name": "com.kaynirgames.tweening",
+    "rootNamespace": "KaynirGames.Tweening",
+    "references": [
+        "GUID:5648887b10ca25c44b3d3d97b9ba2864"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
