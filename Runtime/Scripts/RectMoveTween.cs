@@ -5,7 +5,7 @@ using UnityEngine;
 namespace KaynirGames.Tweening
 {
     [Serializable]
-    public class RectMoveTweenData : TweenData<RectTransform>
+    public class RectMoveTween : BaseTween<RectTransform>
     {
         [SerializeField] private Vector2 _anchoredPosition = Vector2.zero;
 

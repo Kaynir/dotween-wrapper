@@ -5,7 +5,7 @@ using UnityEngine;
 namespace KaynirGames.Tweening
 {
     [Serializable]
-    public class ScaleTweenData : TweenData<Transform>
+    public class ScaleTween : BaseTween<Transform>
     {
         [SerializeField] private float _endScale = 1.25f;
 

@@ -1,15 +1,16 @@
 {
-    "name": "com.kaynirgames.tweening",
+    "name": "kaynirgames.tweening",
     "rootNamespace": "KaynirGames.Tweening",
     "references": [
-        "GUID:5648887b10ca25c44b3d3d97b9ba2864",
-        "GUID:9d12e2e1979bfec44b8b7bc6de1ac4d8"
+        "GUID:5648887b10ca25c44b3d3d97b9ba2864"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
-    "precompiledReferences": [],
+    "precompiledReferences": [
+        "DOTween.dll"
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
