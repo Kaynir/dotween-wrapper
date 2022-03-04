@@ -1,5 +1,5 @@
 {
-  "name": "com.kaynirgames.tweening",
+  "name": "kaynirgames.tweening",
   "version": "1.0.0",
   "displayName": "DOTween Wrapper",
   "description": "Небольшая обертка под DOTween для анимаций.",

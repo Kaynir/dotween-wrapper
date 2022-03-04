@@ -1,20 +1,19 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace KaynirGames.Tweening
 {
-    [Serializable]
-    public class FadeTween : BaseTween<Graphic>
+    public class FadeTween : BaseTween
     {
+        [SerializeField] private Graphic _target = null;
         [SerializeField, Range(0f, 1f)] private float _alpha = 0f;
 
         public float Alpha => _alpha;
 
-        protected override Tween CreateTween(Graphic target)
+        protected override Tween CreateTween()
         {
-            return target.DOFade(_alpha, _duration);
+            return _target.DOFade(_alpha, _duration);
         }
     }
 }

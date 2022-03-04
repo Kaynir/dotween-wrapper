@@ -1,17 +1,16 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 
 namespace KaynirGames.Tweening
 {
-    [Serializable]
-    public class RectMoveTween : BaseTween<RectTransform>
+    public class RectMoveTween : BaseTween
     {
-        [SerializeField] private Vector2 _anchoredPosition = Vector2.zero;
+        [SerializeField] private RectTransform _target = null;
+        [SerializeField] private Vector2 _offset = Vector2.zero;
 
-        protected override Tween CreateTween(RectTransform target)
+        protected override Tween CreateTween()
         {
-            return target.DOAnchorPos(_anchoredPosition, _duration);
+            return _target.DOAnchorPos(_target.anchoredPosition + _offset, _duration);
         }
     }
 }

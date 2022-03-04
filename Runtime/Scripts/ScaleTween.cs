@@ -1,17 +1,16 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 
 namespace KaynirGames.Tweening
 {
-    [Serializable]
-    public class ScaleTween : BaseTween<Transform>
+    public class ScaleTween : BaseTween
     {
+        [SerializeField] private Transform _target = null;
         [SerializeField] private float _endScale = 1.25f;
 
-        protected override Tween CreateTween(Transform target)
+        protected override Tween CreateTween()
         {
-            return target.DOScale(_endScale, _duration);
+            return _target.DOScale(_endScale, _duration);
         }
     }
 }
