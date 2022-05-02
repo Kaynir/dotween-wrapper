@@ -1,16 +1,12 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace KaynirGames.Tweening
+namespace CozyDragon.Tweening
 {
-    public class RectMoveTween : BaseTween
+    public class RectMoveTween : TweenData<RectTransform>
     {
-        [SerializeField] private RectTransform _target = null;
-        [SerializeField] private Vector2 _offset = Vector2.zero;
+        [SerializeField] private Vector2 _endPosition = Vector2.zero;
 
-        protected override Tween CreateTween()
-        {
-            return _target.DOAnchorPos(_target.anchoredPosition + _offset, _duration);
-        }
+        protected override Tween CreateTween(RectTransform target) => target.DOAnchorPos(_endPosition, _duration);
     }
 }

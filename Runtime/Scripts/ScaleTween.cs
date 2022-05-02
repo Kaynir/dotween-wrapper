@@ -1,16 +1,12 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace KaynirGames.Tweening
+namespace CozyDragon.Tweening
 {
-    public class ScaleTween : BaseTween
+    public class ScaleTween : TweenData<Transform>
     {
-        [SerializeField] private Transform _target = null;
-        [SerializeField] private float _endScale = 1.25f;
+        [SerializeField] private Vector3 _endScale = Vector3.one;
 
-        protected override Tween CreateTween()
-        {
-            return _target.DOScale(_endScale, _duration);
-        }
+        protected override Tween CreateTween(Transform target) => target.DOScale(_endScale, _duration);
     }
 }

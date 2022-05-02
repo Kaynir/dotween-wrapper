@@ -1,18 +1,12 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace KaynirGames.Tweening
+namespace CozyDragon.Tweening
 {
-    public class CanvasFadeTween : BaseTween
+    public class CanvasFadeTween : TweenData<CanvasGroup>
     {
-        [SerializeField] private CanvasGroup _target = null;
         [SerializeField, Range(0f, 1f)] private float _alpha = 0f;
 
-        public float Alpha => _alpha;
-
-        protected override Tween CreateTween()
-        {
-            return _target.DOFade(_alpha, _duration);
-        }
+        protected override Tween CreateTween(CanvasGroup target) => target.DOFade(_alpha, _duration);
     }
 }
