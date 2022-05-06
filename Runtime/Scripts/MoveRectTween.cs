@@ -5,7 +5,6 @@ namespace CozyDragon.Tweening
 {
     public class MoveRectTween : MyTween
     {
-        [Header("Move Settings:")]
         [SerializeField] private RectTransform _target = null;
         [SerializeField] private Vector2 _endPosition = Vector2.zero;
 

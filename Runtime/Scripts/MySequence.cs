@@ -10,54 +10,40 @@ namespace CozyDragon.Tweening
         [SerializeField] private UpdateType _updateType = UpdateType.Normal;
         [SerializeField] private TweenData[] _tweens = null;
 
-        public Sequence Sequence => GetSequence();
+        public Sequence Sequence { get; private set; }
 
-        private Sequence _sequence;
+        private void Awake() => Sequence = BuildSequence();
 
         private void OnEnable()
         {
             if (_autoPlay) Restart();
         }
 
-        private void OnDestroy() => _sequence?.Kill();
+        private void OnDestroy() => Sequence?.Kill();
 
         [ContextMenu("Restart")]
         public void Restart() => Sequence.Restart();
 
-        private Sequence GetSequence()
-        {
-            if (_sequence == null)
-            {
-                _sequence = DOTween.Sequence();
-                _sequence.Pause();
-                _sequence.SetAutoKill(false);
-                _sequence.SetUpdate(_updateType, _timeScaleIndependant);
+        [ContextMenu("Play Forward")]
+        public void PlayForward() => Sequence.PlayForward();
 
-                foreach (TweenData data in _tweens)
-                {
-                    data.AddToSequence(_sequence);
-                }
+        [ContextMenu("Play Backwards")]
+        public void PlayBackwards() => Sequence.PlayBackwards();
+
+        private Sequence BuildSequence()
+        {
+            Sequence sequence = DOTween.Sequence();
+
+            sequence.Pause();
+            sequence.SetAutoKill(false);
+            sequence.SetUpdate(_updateType, _timeScaleIndependant);
+
+            foreach (TweenData data in _tweens)
+            {
+                data.AddToSequence(sequence);
             }
 
-            return _sequence;
-        }
-
-        [System.Serializable]
-        private struct TweenData
-        {
-            public MyTween tween;
-            public bool join;
-
-            public void AddToSequence(Sequence sequence)
-            {
-                if (join)
-                {
-                    sequence.Join(tween.Tween);
-                    return;
-                }
-
-                sequence.Append(tween.Tween);
-            }
+            return sequence;
         }
     }
 }

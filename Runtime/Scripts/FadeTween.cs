@@ -6,7 +6,6 @@ namespace CozyDragon.Tweening
 {
     public class FadeTween : MyTween
     {
-        [Header("Fade Settings:")]
         [SerializeField] private Graphic _target = null;
         [SerializeField, Range(0f, 1f)] private float _alpha = 0f;
 
