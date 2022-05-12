@@ -1,14 +1,18 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CozyDragon.Tweening
 {
     public class MySequence : MonoBehaviour
     {
         [SerializeField] private bool _autoPlay = false;
+        [SerializeField] private TweenData[] _tweens = null;
         [SerializeField] private bool _timeScaleIndependant = false;
         [SerializeField] private UpdateType _updateType = UpdateType.Normal;
-        [SerializeField] private TweenData[] _tweens = null;
+
+        [field: SerializeField] public UnityEvent OnComplete { get; private set; } = new UnityEvent();
+        [field: SerializeField] public UnityEvent OnRewind { get; private set; } = new UnityEvent();
 
         public Sequence Sequence { get; private set; }
 
@@ -19,7 +23,12 @@ namespace CozyDragon.Tweening
             if (_autoPlay) Restart();
         }
 
-        private void OnDestroy() => Sequence?.Kill();
+        private void OnDestroy()
+        {
+            OnComplete.RemoveAllListeners();
+            OnRewind.RemoveAllListeners();
+            Sequence?.Kill();
+        }
 
         [ContextMenu("Restart")]
         public void Restart() => Sequence.Restart();
@@ -37,6 +46,8 @@ namespace CozyDragon.Tweening
             sequence.Pause();
             sequence.SetAutoKill(false);
             sequence.SetUpdate(_updateType, _timeScaleIndependant);
+            sequence.OnRewind(OnRewind.Invoke);
+            sequence.OnComplete(OnComplete.Invoke);
 
             foreach (TweenData data in _tweens)
             {
