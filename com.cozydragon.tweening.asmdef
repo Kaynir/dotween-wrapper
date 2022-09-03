@@ -1,16 +1,14 @@
 {
-    "name": "cozydragon.tweening",
+    "name": "com.cozydragon.tweening",
     "rootNamespace": "CozyDragon.Tweening",
     "references": [
-        "GUID:5648887b10ca25c44b3d3d97b9ba2864"
+        "GUID:5761f63094e465443af85393fc5bfcd3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
-    "precompiledReferences": [
-        "DOTween.dll"
-    ],
+    "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],

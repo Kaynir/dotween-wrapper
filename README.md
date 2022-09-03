@@ -1,2 +1,2 @@
-# do-tween-wrapper
+# DoTween Wrapper
  Небольшая обертка под DOTween для анимаций.

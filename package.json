@@ -1,9 +1,9 @@
 {
-  "name": "cozydragon.tweening",
+  "name": "com.cozydragon.tweening",
   "version": "1.0.0",
   "displayName": "DOTween Wrapper",
   "description": "DOTween обертка для анимаций.",
-  "unity": "2020.3",
+  "unity": "2021.3",
   "keywords": [
     "cozydragon, dotween, tweening"
   ],
