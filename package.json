@@ -1,14 +1,14 @@
 {
   "name": "com.cozydragon.tweening",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "displayName": "DOTween Wrapper",
-  "description": "DOTween обертка для анимаций.",
+  "description": "Обертка плагина DOTween для анимации игровых объектов и UI.",
   "unity": "2021.3",
   "keywords": [
     "cozydragon, dotween, tweening"
   ],
   "author": {
-    "name": "Denis Znov",
+    "name": "Денис Знов",
     "email": "kaynir.games@gmail.com",
     "url": "https://github.com/CozyDragonGames/dotween-wrapper"
   }
