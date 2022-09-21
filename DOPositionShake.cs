@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CozyDragon.Tweening
 {
-    public class DOShakePosition : DOAnimation
+    public class DOPositionShake : DOAnimation
     {
         [Header("Shake Settings:")]
         [SerializeField] private Transform _target = null;

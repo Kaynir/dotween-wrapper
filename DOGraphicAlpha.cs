@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace CozyDragon.Tweening
 {
-    public class DOFadeGraphic : DOAnimation
+    public class DOGraphicAlpha : DOAnimation
     {
         [Header("Fade Settings:")]
         [SerializeField] private Graphic _target = null;

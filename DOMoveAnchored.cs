@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CozyDragon.Tweening
 {
-    public class DOAnchoredMove : DOAnimation
+    public class DOMoveAnchored : DOAnimation
     {
         [Header("Move Settings:")]
         [SerializeField] private RectTransform _target = null;
@@ -14,21 +14,19 @@ namespace CozyDragon.Tweening
 
         protected override Tween CreateAnimation()
         {
-            _target.anchoredPosition = _startPosition;
+            if (_useCustomStartPosition)
+            {
+                _target.anchoredPosition = _startPosition;
+            }
+
             return _target.DOAnchorPos(GetEndPosition(), Duration);
         }
 
         private Vector2 GetEndPosition()
         {
             return _useEndPositionAsOffset
-                ? _startPosition + _endPosition
+                ? _target.anchoredPosition + _endPosition
                 : _endPosition;
-        }
-
-        private void OnValidate()
-        {
-            if (_useCustomStartPosition) return;
-            _startPosition = _target.anchoredPosition;
         }
     }
 }

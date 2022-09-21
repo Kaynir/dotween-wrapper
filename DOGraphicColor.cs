@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace CozyDragon.Tweening
 {
-    public class DOColor : DOAnimation
+    public class DOGraphicColor : DOAnimation
     {
         [Header("Color Settings:")]
         [SerializeField] private Graphic _target = null;
