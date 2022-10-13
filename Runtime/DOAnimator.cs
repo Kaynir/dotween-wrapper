@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CozyDragon.Tweening
+namespace Kaynir.Tweening
 {
     public class DOAnimator : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 {
-    "name": "com.cozydragon.tweening",
-    "rootNamespace": "CozyDragon.Tweening",
+    "name": "Kaynir.Tweening",
+    "rootNamespace": "Kaynir.Tweening",
     "references": [
         "GUID:5761f63094e465443af85393fc5bfcd3"
     ],

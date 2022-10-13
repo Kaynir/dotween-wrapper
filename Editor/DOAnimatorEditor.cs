@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace CozyDragon.Tweening
+namespace Kaynir.Tweening.Editors
 {
     [CustomEditor(typeof(DOAnimator))]
     public class DOAnimatorEditor : Editor

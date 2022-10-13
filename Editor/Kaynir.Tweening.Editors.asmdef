@@ -1,6 +1,6 @@
 {
-    "name": "com.cozydragon.tweening.editor",
-    "rootNamespace": "CozyDragon.Tweening",
+    "name": "Kaynir.Tweening.Editors",
+    "rootNamespace": "Kaynir.Tweening.Editors",
     "references": [
         "GUID:603fd0b091731d24b909353db26af1c2"
     ],

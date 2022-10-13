@@ -2,7 +2,7 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 
-namespace CozyDragon.Tweening
+namespace Kaynir.Tweening
 {
     public class DOGroupAlpha : DOAnimation
     {
