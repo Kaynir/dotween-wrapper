@@ -9,40 +9,45 @@ namespace Kaynir.Tweening
     {
         [SerializeField] private List<AnimationData> _animations = new List<AnimationData>();
         [SerializeField] private List<DOModule> _modules = new List<DOModule>();
-        [SerializeField] private bool _autoPlay = false;
+        [SerializeField] private bool _playOnStart = false;
 
-        public Sequence Sequence { get; private set; }
+        private Sequence _sequence;
 
-        private void Awake() => CreateSequence();
-
-        private void OnDestroy() => Sequence?.Kill();
-
-        public void CreateSequence()
+        private void Start()
         {
-            if (Sequence != null) Sequence.Kill();
+            if (_playOnStart) Play();
+        }
 
-            Sequence = DOTween.Sequence();
-            Sequence.SetAutoKill(false);
+        private void OnDestroy() => _sequence?.Kill();
 
-            _animations.ForEach(a => a.ApplySequence(Sequence));
-            _modules.ForEach(m => m.Apply(Sequence));
-
-            if (_autoPlay) Play();
+        public Sequence GetSequence()
+        {
+            if (_sequence == null) CreateSequence();
+            return _sequence;
         }
 
         public void Play()
         {
-            if (Sequence.IsComplete())
+            if (GetSequence().IsComplete())
             {
-                Sequence.PlayBackwards();
+                GetSequence().PlayBackwards();
                 return;
             }
 
-            Sequence.PlayForward();
+            GetSequence().PlayForward();
         }
 
-        public void Restart() => Sequence.Restart();
-        public void Complete() => Sequence.Complete(true);
-        public void Rewind() => Sequence.Rewind();
+        public void Restart() => GetSequence().Restart();
+        public void Complete() => GetSequence().Complete(true);
+        public void Rewind() => GetSequence().Rewind();
+
+        private void CreateSequence()
+        {
+            _sequence = DOTween.Sequence();
+            _sequence.SetAutoKill(false);
+
+            _animations.ForEach(a => a.ApplySequence(GetSequence()));
+            _modules.ForEach(m => m.Apply(GetSequence()));
+        }
     }
 }
