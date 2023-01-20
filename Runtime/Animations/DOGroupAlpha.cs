@@ -1,20 +1,17 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 
-namespace Kaynir.Tweening
+namespace Kaynir.Tweening.Animations
 {
-    public class DOGroupAlpha : DOAnimation
+    public class DOGroupAlpha : DOAlphaBase
     {
-        [Header("Fade Settings:")]
         [SerializeField] private CanvasGroup _target = null;
-        [SerializeField, Range(0f, 1f)] private float _startAlpha = 0f;
-        [SerializeField, Range(0f, 1f)] private float _endAlpha = 1f;
 
-        protected override Tween CreateAnimation()
+        protected override Tween CreateTween()
         {
-            _target.alpha = _startAlpha;
-            return _target.DOFade(_endAlpha, Duration);
+            return _isFromValue
+            ? _target.DOFade(_endValue, Duration).From()
+            : _target.DOFade(_endValue, Duration);
         }
     }
 }

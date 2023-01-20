@@ -1,19 +1,17 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Kaynir.Tweening
+namespace Kaynir.Tweening.Animations
 {
-    public class DOScale : DOAnimation
+    public class DOScale : DOVectorBase
     {
-        [Header("Scale Settings:")]
         [SerializeField] private Transform _target = null;
-        [SerializeField] private Vector3 _startScale = Vector3.zero;
-        [SerializeField] private Vector3 _endScale = Vector3.one;
 
-        protected override Tween CreateAnimation()
+        protected override Tween CreateTween()
         {
-            _target.localScale = _startScale;
-            return _target.DOScale(_endScale, Duration);
+            return _isFromValue
+            ? _target.DOScale(_endValue, Duration).From(true, _isRelative)
+            : _target.DOScale(GetRelative(_target.localScale), Duration);
         }
     }
 }

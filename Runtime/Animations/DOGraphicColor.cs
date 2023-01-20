@@ -2,19 +2,19 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Kaynir.Tweening
+namespace Kaynir.Tweening.Animations
 {
     public class DOGraphicColor : DOAnimation
     {
-        [Header("Color Settings:")]
         [SerializeField] private Graphic _target = null;
-        [SerializeField] private Color _startColor = Color.clear;
-        [SerializeField] private Color _endColor = Color.white;
+        [SerializeField] private Color _endValue = Color.white;
+        [SerializeField] private bool _isFromValue = false;
 
-        protected override Tween CreateAnimation()
+        protected override Tween CreateTween()
         {
-            _target.color = _startColor;
-            return _target.DOColor(_endColor, Duration);
+            return _isFromValue
+            ? _target.DOColor(_endValue, Duration).From()
+            : _target.DOColor(_endValue, Duration);
         }
     }
 }

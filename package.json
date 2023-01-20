@@ -2,10 +2,10 @@
   "name": "com.kaynir.tweening",
   "version": "1.0.0",
   "displayName": "DOTween Wrapper",
-  "description": "Пакет-обертка под плагин DOTween для анимации игровых объектов и UI.",
+  "description": "Пакет-обертка плагина DOTween для анимации игровых объектов и UI.",
   "unity": "2021.3",
   "keywords": [
-    "kaynir, dotween, tweening"
+    "dotween, tweening"
   ],
   "author": {
     "name": "Денис Знов",

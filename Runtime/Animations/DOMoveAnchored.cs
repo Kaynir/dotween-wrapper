@@ -1,32 +1,17 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Kaynir.Tweening
+namespace Kaynir.Tweening.Animations
 {
-    public class DOMoveAnchored : DOAnimation
+    public class DOMoveAnchored : DOVectorBase
     {
-        [Header("Move Settings:")]
         [SerializeField] private RectTransform _target = null;
-        [SerializeField] private Vector2 _startPosition = Vector2.zero;
-        [SerializeField] private Vector2 _endPosition = Vector2.zero;
-        [SerializeField] private bool _useCustomStartPosition = false;
-        [SerializeField] private bool _useEndPositionAsOffset = false;
 
-        protected override Tween CreateAnimation()
+        protected override Tween CreateTween()
         {
-            if (_useCustomStartPosition)
-            {
-                _target.anchoredPosition = _startPosition;
-            }
-
-            return _target.DOAnchorPos(GetEndPosition(), Duration);
-        }
-
-        private Vector2 GetEndPosition()
-        {
-            return _useEndPositionAsOffset
-                ? _target.anchoredPosition + _endPosition
-                : _endPosition;
+            return _isFromValue
+            ? _target.DOAnchorPos3D(_endValue, Duration).From(true, _isRelative)
+            : _target.DOAnchorPos3D(GetRelative(_target.anchoredPosition3D), Duration);
         }
     }
 }
