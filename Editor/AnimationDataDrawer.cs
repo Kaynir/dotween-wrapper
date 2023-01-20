@@ -22,7 +22,7 @@ namespace Kaynir.Tweening.Editors
 
             position.y += position.height;
             
-            join.boolValue = EditorGUI.PropertyField(position, join, joinTooltip);
+            join.boolValue = EditorGUI.Toggle(position, joinTooltip, join.boolValue);
 
             EditorGUI.EndProperty();
         }
