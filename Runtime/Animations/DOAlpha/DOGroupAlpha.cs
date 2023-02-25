@@ -7,11 +7,10 @@ namespace Kaynir.Tweening.Animations
     {
         [SerializeField] private CanvasGroup _target = null;
 
-        protected override Tween CreateTween()
+        protected override Tween CreateTween(float duration)
         {
-            return _isFromValue
-            ? _target.DOFade(_endValue, Duration).From()
-            : _target.DOFade(_endValue, Duration);
+            return _target.DOFade(EndValue, duration)
+                          .From(StartValue);
         }
     }
 }

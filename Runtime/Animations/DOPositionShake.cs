@@ -13,17 +13,15 @@ namespace Kaynir.Tweening.Animations
         [SerializeField] private bool _snapping = false;
         [SerializeField] private bool _fadeOut = true;
 
-        protected override Tween CreateTween()
+        protected override Tween CreateTween(float duration)
         {
-            return _target.DOShakePosition(
-                Duration,
-                _strength,
-                _vibrato,
-                _randomness,
-                _snapping,
-                _fadeOut,
-                _randomnessMode
-            );
+            return _target.DOShakePosition(duration,
+                                           _strength,
+                                           _vibrato,
+                                           _randomness,
+                                           _snapping,
+                                           _fadeOut,
+                                           _randomnessMode);
         }
     }
 }

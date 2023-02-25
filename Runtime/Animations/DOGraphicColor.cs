@@ -7,14 +7,14 @@ namespace Kaynir.Tweening.Animations
     public class DOGraphicColor : DOAnimation
     {
         [SerializeField] private Graphic _target = null;
-        [SerializeField] private Color _endValue = Color.white;
-        [SerializeField] private bool _isFromValue = false;
+        
+        [field: SerializeField] public Color StartValue { get; set; } = Color.white;
+        [field: SerializeField] public Color EndValue { get; set; } = Color.white;
 
-        protected override Tween CreateTween()
+        protected override Tween CreateTween(float duration)
         {
-            return _isFromValue
-            ? _target.DOColor(_endValue, Duration).From()
-            : _target.DOColor(_endValue, Duration);
+            return _target.DOColor(EndValue, duration)
+                          .From(StartValue);
         }
     }
 }
