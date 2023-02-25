@@ -11,6 +11,15 @@ namespace Kaynir.Tweening
         [SerializeField] private List<DOModule> _modules = new List<DOModule>();
         [SerializeField] private bool _playOnStart = false;
 
+        public Sequence Sequence
+        {
+            get
+            {
+                if (_sequence == null) CreateSequence();
+                return _sequence;
+            }
+        }
+
         private Sequence _sequence;
 
         private void Start()
@@ -20,34 +29,29 @@ namespace Kaynir.Tweening
 
         private void OnDestroy() => _sequence?.Kill();
 
-        public Sequence GetSequence()
+        public void CreateSequence()
         {
-            if (_sequence == null) CreateSequence();
-            return _sequence;
+            _sequence?.Kill();
+            _sequence = DOTween.Sequence();
+            _sequence.SetAutoKill(false);
+
+            _animations.ForEach(a => a.ApplySequence(Sequence));
+            _modules.ForEach(m => m.Apply(Sequence));
         }
 
         public void Play()
         {
-            if (GetSequence().IsComplete())
+            if (Sequence.IsComplete())
             {
-                GetSequence().PlayBackwards();
+                Sequence.PlayBackwards();
                 return;
             }
 
-            GetSequence().PlayForward();
+            Sequence.PlayForward();
         }
 
-        public void Restart() => GetSequence().Restart();
-        public void Complete() => GetSequence().Complete(true);
-        public void Rewind() => GetSequence().Rewind();
-
-        private void CreateSequence()
-        {
-            _sequence = DOTween.Sequence();
-            _sequence.SetAutoKill(false);
-
-            _animations.ForEach(a => a.ApplySequence(GetSequence()));
-            _modules.ForEach(m => m.Apply(GetSequence()));
-        }
+        public void Restart() => Sequence.Restart();
+        public void Complete() => Sequence.Complete(true);
+        public void Rewind() => Sequence.Rewind();
     }
 }
