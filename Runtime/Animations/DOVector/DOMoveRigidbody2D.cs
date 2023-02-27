@@ -9,8 +9,8 @@ namespace Kaynir.Tweening.Animations
 
         protected override Tween CreateTween(float duration)
         {
-            return _target.DOMove(GetEndValue(_target.position), duration)
-                          .From(StartValue);
+            if (UseCustomStartValue) _target.position = StartValue;
+            return _target.DOMove(GetTweenEndValue(_target.position), duration);
         }
     }
 }

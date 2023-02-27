@@ -9,8 +9,8 @@ namespace Kaynir.Tweening.Animations
 
         protected override Tween CreateTween(float duration)
         {
-            return _target.DOAnchorPos3D(GetEndValue(_target.anchoredPosition3D), duration)
-                          .From(StartValue);
+            if (UseCustomStartValue) _target.anchoredPosition3D = StartValue;
+            return _target.DOAnchorPos3D(GetTweenEndValue(_target.anchoredPosition3D), duration);
         }
     }
 }

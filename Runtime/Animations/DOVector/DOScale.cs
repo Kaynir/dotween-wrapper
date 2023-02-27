@@ -9,8 +9,8 @@ namespace Kaynir.Tweening.Animations
 
         protected override Tween CreateTween(float duration)
         {
-            return _target.DOScale(GetEndValue(_target.localScale), duration)
-                          .From(StartValue);
+            if (UseCustomStartValue) _target.localScale = StartValue;
+            return _target.DOScale(GetTweenEndValue(_target.localScale), duration);
         }
     }
 }
