@@ -13,7 +13,7 @@ namespace Kaynir.Tweening.Editors
             SerializedProperty join = property.FindPropertyRelative("_join");
             SerializedProperty animation = property.FindPropertyRelative("_animation");
 
-            GUIContent joinTooltip = new GUIContent("Join", "Join previous animation.");
+            GUIContent joinTooltip = new GUIContent("Join Previous", "Join previous animation.");
             GUIContent animationLabel = new GUIContent("Animation", "Animation to play.");
 
             position.height = EditorGUIUtility.singleLineHeight;
