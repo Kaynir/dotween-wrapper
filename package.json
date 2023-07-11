@@ -1,15 +1,15 @@
 {
-  "name": "com.kaynir.tweening",
+  "name": "com.kaynir.dotween-extension",
   "version": "1.0.0",
-  "displayName": "DOTween Wrapper",
-  "description": "Пакет-обертка плагина DOTween для анимации игровых объектов и UI.",
-  "unity": "2021.3",
+  "displayName": "DOTween Extension",
+  "description": "An extension for DOTween to animate game objects and UI.",
+  "unity": "2022.3",
   "keywords": [
     "dotween, tweening"
   ],
   "author": {
-    "name": "Денис Знов",
+    "name": "Denis Znov",
     "email": "kaynir.games@gmail.com",
-    "url": "https://github.com/Kaynir/dotween-wrapper"
+    "url": "https://github.com/Kaynir/unity-dotween-extension"
   }
 }

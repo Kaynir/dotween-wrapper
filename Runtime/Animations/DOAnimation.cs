@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Kaynir.Tweening.Events;
 using Kaynir.Tweening.Modules;
 using UnityEngine;
 
@@ -7,14 +8,18 @@ namespace Kaynir.Tweening.Animations
 {
     public abstract class DOAnimation : MonoBehaviour
     {
-        [field: SerializeField] public float Duration { get; set; } = .5f;
-        [SerializeField] private List<DOModule> _modules = new List<DOModule>();
+        [SerializeField] private float duration = .5f;
+        [SerializeField] private List<DOModule> modules = new List<DOModule>();
+        [SerializeField] private List<DOEvent> events = new List<DOEvent>();
+
+        public float Duration => duration;
 
         public Tween GetTween()
         {
-            Tween tween = CreateTween(Duration);
+            Tween tween = CreateTween(duration);
 
-            _modules.ForEach(m => m.Apply(tween));
+            modules.ForEach(m => m.Apply(tween));
+            events.ForEach(e => e.SetCallback(tween));
 
             return tween;
         }

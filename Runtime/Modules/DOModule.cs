@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Kaynir.Tweening.Modules
 {
-    public abstract class DOModule : MonoBehaviour
+    public abstract class DOModule : ScriptableObject
     {
         public abstract void Apply(Tween tween);
     }

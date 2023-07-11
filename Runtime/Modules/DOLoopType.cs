@@ -3,14 +3,17 @@ using UnityEngine;
 
 namespace Kaynir.Tweening.Modules
 {
+    [CreateAssetMenu(menuName = ASSET_MENU_NAME)]
     public class DOLoopType : DOModule
     {
-        [SerializeField, Min(-1)] private int _loops = 0;
-        [SerializeField] private LoopType _loopType = LoopType.Restart;
+        private const string ASSET_MENU_NAME = "Scriptable Objects/Tweening/Modules/Loop Type";
+
+        [SerializeField, Min(-1)] private int loops = 0;
+        [SerializeField] private LoopType loopType = LoopType.Restart;
 
         public override void Apply(Tween tween)
         {
-            tween.SetLoops(_loops, _loopType);
+            tween.SetLoops(loops, loopType);
         }
     }
 }

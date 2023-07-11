@@ -10,9 +10,6 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-Plugins/Demigiant/DOTween/Editor/
-Plugins/Demigiant/DOTween/Editor.meta
-
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
@@ -75,5 +72,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # DOTween Editor files
-/Plugins/Demigiant/DOTween/Editor/
-/Plugins/Demigiant/DOTween/Editor.meta
+/DOTween/Editor/
+/DOTween/Editor.meta

@@ -3,15 +3,15 @@ using UnityEditor;
 
 namespace Kaynir.Tweening.Editors
 {
-    [CustomPropertyDrawer(typeof(AnimationData))]
-    public class AnimationDataDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(DOAnimatorClip))]
+    public class DOAnimatorClipDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             EditorGUI.BeginProperty(position, label, property);
 
-            SerializedProperty join = property.FindPropertyRelative("_join");
-            SerializedProperty animation = property.FindPropertyRelative("_animation");
+            SerializedProperty join = property.FindPropertyRelative("join");
+            SerializedProperty animation = property.FindPropertyRelative("animation");
 
             GUIContent joinTooltip = new GUIContent("Join Previous", "Join previous animation.");
             GUIContent animationLabel = new GUIContent("Animation", "Animation to play.");

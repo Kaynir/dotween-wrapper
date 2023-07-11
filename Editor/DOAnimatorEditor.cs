@@ -6,11 +6,11 @@ namespace Kaynir.Tweening.Editors
     [CustomEditor(typeof(DOAnimator))]
     public class DOAnimatorEditor : Editor
     {
-        private DOAnimator _animator;
+        private DOAnimator animator;
 
         private void OnEnable()
         {
-            _animator = (DOAnimator)target;
+            animator = (DOAnimator)target;
         }
 
         public override void OnInspectorGUI()
@@ -29,10 +29,10 @@ namespace Kaynir.Tweening.Editors
 
             EditorGUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Play")) _animator.Play();
-            if (GUILayout.Button("Restart")) _animator.Restart();
-            if (GUILayout.Button("Complete")) _animator.Complete();
-            if (GUILayout.Button("Rewind")) _animator.Rewind();
+            if (GUILayout.Button("Play")) animator.Play();
+            if (GUILayout.Button("Restart")) animator.Restart();
+            if (GUILayout.Button("Complete")) animator.Complete();
+            if (GUILayout.Button("Rewind")) animator.Rewind();
 
             EditorGUILayout.EndHorizontal();
         }

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Kaynir.Tweening.Events;
 using Kaynir.Tweening.Modules;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,36 +8,34 @@ namespace Kaynir.Tweening
 {
     public class DOAnimator : MonoBehaviour
     {
-        [SerializeField] private List<AnimationData> _animations = new List<AnimationData>();
-        [SerializeField] private List<DOModule> _modules = new List<DOModule>();
-        [SerializeField] private bool _playOnStart = false;
+        [SerializeField] private List<DOAnimatorClip> animations = new List<DOAnimatorClip>();
+        [SerializeField] private List<DOModule> modules = new List<DOModule>();
+        [SerializeField] private List<DOEvent> events = new List<DOEvent>();
+        [SerializeField] private bool playOnStart = false;
 
-        public Sequence Sequence
-        {
-            get
-            {
-                if (_sequence == null) CreateSequence();
-                return _sequence;
-            }
-        }
+        public Sequence Sequence => sequence ?? CreateSequence();
 
-        private Sequence _sequence;
+        private Sequence sequence;
 
         private void Start()
         {
-            if (_playOnStart) Play();
+            if (!playOnStart) return;
+            Play();
         }
 
-        private void OnDestroy() => _sequence?.Kill();
+        private void OnDestroy() => sequence?.Kill();
 
-        public void CreateSequence()
+        public Sequence CreateSequence()
         {
-            _sequence?.Kill();
-            _sequence = DOTween.Sequence();
-            _sequence.SetAutoKill(false);
+            sequence?.Kill();
+            sequence = DOTween.Sequence();
+            sequence.SetAutoKill(false);
 
-            _animations.ForEach(a => a.ApplySequence(Sequence));
-            _modules.ForEach(m => m.Apply(Sequence));
+            animations.ForEach(a => a.Append(sequence));
+            modules.ForEach(m => m.Apply(sequence));
+            events.ForEach(e => e.SetCallback(sequence));
+
+            return sequence;
         }
 
         public void Play()
