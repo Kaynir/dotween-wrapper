@@ -1,7 +1,9 @@
 {
     "name": "Kaynir.Tweening",
     "rootNamespace": "Kaynir.Tweening",
-    "references": [],
+    "references": [
+        "GUID:76bbb0e3ffdb056498fae00f039a103e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
